@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Car collisions">
+    <meta name="keywords" content="Car collision analysis">
+    <meta name="author" content="Yuantao Li">
+    <title>Car collisions | Welcome</title>
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">NYC Car Collisions</span> and Casualty</h1>
+        </div>
+        <nav>
+          <ul>
+            <li class="current"><a href="{{ url_for('index')}}">Home</a></li>
+            <li><a href="{{ url_for('data')}}">Data</a></li>
+            <li><a href="{{ url_for('prediction')}}">Prediction</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+
+    <section id="main">
+      <div class="container">
+        <article id="main-col">
+          <h1 class="page-title">Explanation of parameters</h1>
+          <ul id="services">
+            <li>
+              <h3>Contributing factors</h3>
+              <p>Contributing factor 1 indicates the police recorded factor by vehicle 1 in a collision that caused the accidents</p>
+              <p>Contributing factor 2 indicates the police recorded factor by vehicle 2 in a collision that caused the accidents</p>
+  
+            </li>
+            <li>
+              <h3>Vehicle types</h3>
+              <p>Vehicle type 1 indicates the type of vehicle 1 in a collision</p>
+              <p>Vehicle type 2 indicates the type of vehicle 2 in a collision</p>
+
+            </li>
+            <li>
+              <h3>Block code</h3>
+              <p>Block code indicates the likelihood of accidents in a certain block.</p>
+              <p>The values of block code varies between 0-10 but most are below 3, mean is 1.29, 0.5 percentile 1.25, 0.9 percentile 2.23. For comparative likelihood of blocks please refer to the second map in "DATA"</p>
+            </li>
+            <li>
+              <h3>Hour, month, street width</h3>
+              <p>Hour, month and street width are other few quantities used to predict the accidents</p>
+            </li>
+          </ul>
+        </article>
+
+        <aside id="sidebar_2">
+          <div class="dark">
+            <h3>Get a prediction</h3>
+            <form class="quote",method="POST">
+              <div>
+                <label>Contributing factor 1</label><br>
+                
+                <select class="CR1_pick" method="POST" action="prediction" type="float" name="CR1_code">
+                  <option value="30.0">Reaction to Uninvolved Vehicle</option>
+                  <option value="49.0">Passing or Lane Usage Improper</option>
+                  <option value="21.0">Failure to Yield Right-of-Way</option>
+                  <option value="35.0">Driver Inattention/Distraction</option>
+                  <option value="45.0">Unsafe Lane Changing</option>
+                  <option value="14.0">Following Too Closely</option>
+                  <option value="11.0">Alcohol Involvement</option>
+                  <option value="56.0">Backing Unsafely</option>
+                  <option value="9.0">Brakes Defective</option>
+                  <option value="54.0">Passing Too Closely</option>
+                  <option value="55.0">Oversized Vehicle</option>
+                  <option value="8.0">Fell Asleep</option>
+                  <option value="38.0">Driver Inexperience</option>
+                  <option value="37.0">View Obstructed/Limited</option>
+                  <option value="53.0">Pedestrian/Bicyclist/Other Pedestrian Error/Confusion</option>
+                  <option value="26.0">Illness</option>
+                  <option value="46.0">Turning Improperly</option>
+                  <option value="36.0">Outside Car Distraction</option>
+                  <option value="5.0">Traffic Control Disregarded</option>
+                  <option value="4.0">Unsafe Speed</option>
+                  <option value="19.0">Aggressive Driving/Road Rage</option>
+                  <option value="27.0">Pavement Slippery</option>
+                  <option value="6.0">Physical Disability</option>
+                  <option value="18.0">Failure to Keep Right</option>
+                  <option value="51.0">Passenger Distraction</option>
+                  <option value="42.0">Obstruction/Debris</option>
+                  <option value="52.0">Lane Marking Improper/Inadequate</option>
+                  <option value="29.0">Steering Failure</option>
+                  <option value="20.0">Glare</option>
+                  <option value="25.0">Fatigued/Drowsy</option>
+                  <option value="48.0">Driverless/Runaway Vehicle</option>
+                  <option value="2.0">Eating or Drinking</option>
+                  <option value="32.0">Reaction to Other Uninvolved Vehicle</option>
+                  <option value="22.0">Tire Failure/Inadequate</option>
+                  <option value="33.0">Other Electronic Device</option>
+                  <option value="44.0">VAN</option>
+                  <option value="50.0">Lost Consciousness</option>
+                  <option value="3.0">Traffic Control Device Improper/Non-Working</option>
+                  <option value="24.0">Pavement Defective</option>
+                  <option value="34.0">Windshield Inadequate</option>
+                  <option value="7.0">Drugs (Illegal)</option>
+                  <option value="47.0">Tow Hitch Defective</option>
+                  <option value="13.0">Cell Phone (hand-held)</option>
+                  <option value="17.0">Other Lighting Defects</option>
+                  <option value="12.0">Accelerator Defective</option>
+                  <option value="41.0">Prescription Medication</option>
+                  <option value="28.0">Animals Action</option>
+                  <option value="39.0">Cell Phone (hands-free)</option>
+                  
+                </select>
+              </div>
+              <div>
+                <label>Contributing factor 2</label><br>
+                 <select method="POST" action="prediction" type="float" name="CR2_code">
+                  <option value="21.0">Failure to Yield Right-of-Way</option>
+                  <option value="35.0">Driver Inattention/Distraction</option>
+                  <option value="49.0">Passing or Lane Usage Improper</option>
+                  <option value="43.0">Other Vehicular</option>
+                  <option value="45.0">Unsafe Lane Changing</option>
+                  <option value="14.0">Following Too Closely</option>
+                  <option value="30.0">Reaction to Uninvolved Vehicle</option>
+                  <option value="38.0">Driver Inexperience</option>
+                  <option value="18.0">Failure to Keep Right</option>
+                  <option value="54.0">Passing Too Closely</option>
+                  <option value="19.0">Aggressive Driving/Road Rage</option>
+                  <option value="46.0">Turning Improperly</option>
+                  <option value="5.0">Traffic Control Disregarded</option>
+                  <option value="4.0">Unsafe Speed</option>
+                  <option value="56.0">Backing Unsafely</option>
+                  <option value="36.0">Outside Car Distraction</option>
+                  <option value="53.0">Pedestrian/Bicyclist/Other Pedestrian Error/Confusion</option>
+                  <option value="55.0">Oversized Vehicle</option>
+                  <option value="37.0">View Obstructed/Limited</option>
+                  <option value="52.0">Lane Marking Improper/Inadequate</option>
+                  <option value="8.0">Fell Asleep</option>
+                  <option value="27.0">Pavement Slippery</option>
+                  <option value="22.0">Tire Failure/Inadequate</option>
+                  <option value="51.0">Passenger Distraction</option>
+                  <option value="32.0">Reaction to Other Uninvolved Vehicle</option>
+                  <option value="11.0">Alcohol Involvement</option>
+                  <option value="9.0">Brakes Defective</option>
+                  <option value="13.0">Cell Phone (hand-held)</option>
+                  <option value="42.0">Obstruction/Debris</option>
+                  <option value="3.0">Traffic Control Device Improper/Non-Working</option>
+                  <option value="20.0">Glare</option>
+                  <option value="12.0">Accelerator Defective</option>
+                  <option value="50.0">Lost Consciousness</option>
+                  <option value="6.0">Physical Disability</option>
+                  <option value="25.0">Fatigued/Drowsy</option>
+                  <option value="41.0">Prescription Medication</option>
+                  <option value="33.0">Other Electronic Device</option>
+                  <option value="26.0">Illness</option>
+                  <option value="16.0">Headlights Defective</option>
+                  <option value="29.0">Steering Failure</option>
+                  <option value="24.0">Pavement Defective</option>
+                  <option value="7.0">Drugs (Illegal)</option>
+                  <option value="31.0">Unspecified</option>
+  
+                </select>                  
+              </div>
+              <div>
+                <label>Vehicle type 1</label><br>
+                <select method="POST" action="prediction" type="float" name="CT1_code">
+                  <option value="2.0">SEDAN</option>
+                  <option value="33.0">BOX TRUCK</option>
+                  <option value="4.0">STATION WAGON/SPORT UTILITY VEHICLE</option>
+                  <option value="12.0">TAXI</option>
+                  <option value="27.0">VAN</option>
+                  <option value="21.0">PICK-UP TRUCK</option>
+                  <option value="6.0">DUMP</option>
+                  <option value="39.0">BICYCLE</option>
+                  <option value="0.0">MOTORCYCLE</option>
+                  <option value="22.0">BUS</option>
+                  <option value="19.0">TRACTOR TRUCK DIESEL</option>
+                  <option value="11.0">CARRY ALL</option>
+                  <option value="17.0">AMBULANCE</option>
+                  <option value="7.0">GARBAGE OR REFUSE</option>
+                  <option value="16.0">FLAT BED</option>
+                  <option value="3.0">CONVERTIBLE</option>
+                  <option value="31.0">TOW TRUCK / WRECKER</option>
+                  <option value="38.0">TRACTOR TRUCK GASOLINE</option>
+                  <option value="5.0">PASSENGER VEHICLE</option>
+                  <option value="8.0">SPORT UTILITY / STATION WAGON</option>
+                  <option value="15.0">FIRE TRUCK</option>
+                  <option value="37.0">SMALL COM VEH(4 TIRES) </option>
+                  <option value="9.0">LIVERY VEHICLE</option>
+                  <option value="36.0">LARGE COM VEH(6 OR MORE TIRES)</option>
+                 </select> 
+
+              </div>
+              <div>
+                <label>Vehicle type 2</label><br>
+                <select method="POST" action="prediction" type="float" name="CT2_code">  
+                  <option value="2.0">SEDAN</option>
+                  <option value="4.0">STATION WAGON/SPORT UTILITY VEHICLE</option>
+                  <option value="3.0">CONVERTIBLE</option>
+                  <option value="21.0">PICK-UP TRUCK</option>
+                  <option value="12.0">TAXI</option>
+                  <option value="33.0">BOX TRUCK</option>
+                  <option value="22.0">BUS</option>
+                  <option value="0.0">MOTORCYCLE</option>
+                  <option value="39.0">BICYCLE</option>
+                  <option value="19.0">TRACTOR TRUCK DIESEL</option>
+                  <option value="17.0">AMBULANCE</option>
+                  <option value="6.0">DUMP</option>
+                  <option value="16.0">FLAT BED</option>
+                  <option value="11.0">CARRY ALL</option>
+                  <option value="31.0">TOW TRUCK / WRECKER</option>
+                  <option value="40.0">PEDICAB</option>
+                  <option value="8.0">SPORT UTILITY / STATION WAGON</option>
+                  <option value="5.0">PASSENGER VEHICLE</option>
+                  <option value="1.0">SCOOTER</option>
+                  <option value="37.0">SMALL COM VEH(4 TIRES) </option>
+                  <option value="36.0">LARGE COM VEH(6 OR MORE TIRES)</option>
+                  <option value="9.0">LIVERY VEHICLE</option>
+                  <option value="23.0">UNKNOWN</option>
+                  
+                </select> 
+              </div>
+              <div>
+                <label>Block code</label><br>
+                <input type="text" placeholder="0-10, majority below 3" name="BK_code">
+              </div>
+              <div>
+                <label>Hour</label><br>
+                <select method="POST" action="prediction" type="int" name="HOUR_code">    
+                  <option value="12">1</option>
+                  <option value="21">2</option>
+                  <option value="20">3</option>
+                  <option value="23">4</option>
+                  <option value="22">5</option>
+                  <option value="19">6</option>
+                  <option value="18">7</option>
+                  <option value="3">8</option>
+                  <option value="2">9</option>
+                  <option value="14">10</option>
+                  <option value="9">11</option>
+                  <option value="6">12</option>
+                  <option value="8">13</option>
+                  <option value="1">14</option>
+                  <option value="13">15</option>
+                  <option value="10">16</option>
+                  <option value="11">17</option>
+                  <option value="4">18</option>
+                  <option value="0">19</option>
+                  <option value="5">20</option>
+                  <option value="16">21</option>
+                  <option value="15">22</option>
+                  <option value="17">23</option>
+                  <option value="7">0</option>
+                </select>  
+              </div>
+              <div>
+                <label>Month</label><br>
+                <select method=POST action="prediction" type="float" name="MONTH_code">    
+                  <option value="0">1</option>
+                  <option value="6">2</option>
+                  <option value="4">3</option>
+                  <option value="5">4</option>
+                  <option value="11">5</option>
+                  <option value="8">6</option>
+                  <option value="1">7</option>
+                  <option value="9">8</option>
+                  <option value="10">9</option>
+                  <option value="2">10</option>
+                  <option value="3">11</option>
+                  <option value="7">12</option>
+                 </select>  
+              </div>
+              <div>
+                <label>Street width (/ft)</label><br>
+                <select method="POST" action="prediction" type="float" name="STWIDTH_code">   
+                  <option value="0.434783">12</option>
+                  <option value="2.328767">14</option>
+                  <option value="1.025641">16</option>
+                  <option value="2.142857">18</option>
+                  <option value="1.452514">20</option>
+                  <option value="1.658031">22</option>
+                  <option value="1.829268">25</option>
+                  <option value="0.909091">26</option>
+                  <option value="0.744681">28</option>
+                  <option value="1.57902">30</option>
+                  <option value="1.833333">32</option>
+                  <option value="1.5">34</option>
+                  <option value="2">36</option>
+                  <option value="1.666667">38</option>
+                  <option value="1.368941">40</option>
+                  <option value="0.912779">42</option>
+                  <option value="0.735887">44</option>
+                  <option value="2.5">45</option>
+                  <option value="1.792929">46</option>
+                  <option value="0.967742">48</option>
+                  <option value="0.803634">50</option>
+                  <option value="2.857143">54</option>
+                  <option value="0.588235">55</option>
+                  <option value="0.762712">56</option>
+                  <option value="0">58</option>
+                  <option value="0.825046">60</option>
+                  <option value="1.933702">62</option>
+                  <option value="0">68</option>
+                  <option value="2.553191">70</option>
+                    
+                </select> 
+              </div>
+
+
+              <hr>
+              <button class="button_1" type="submit">Send</button>
+          </form>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <p>Yuantao Li, the Data Incubator, Copyright &copy; 2019</p>
+    </footer>
+  </body>
+</html>

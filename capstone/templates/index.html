@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Car collisions">
+	  <meta name="keywords" content="Car collision analysis">
+  	<meta name="author" content="Yuantao Li">
+    <title>Acme Web Deisgn | Welcome</title>
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">NYC Car Collisions</span> and Casualty</h1>
+        </div>
+        <nav>
+          <ul>
+            <li class="current"><a href="{{ url_for('index')}}">Home</a></li>
+            <li><a href="{{ url_for('data')}}">Data</a></li>
+            <li><a href="{{ url_for('prediction')}}">Prediction</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="showcase">
+      <div class="container">
+        <h1>Car accidents cause severe casualty, we are here to help you predict them</h1>
+        <p>We built up prediction models using the car collision data from 2012-2018 to help you predict the likelihood of an motorist (motor vehicle drivers or passengers) injury in a car crash.</p>
+      </div>
+    </section>
+
+    
+
+    <section id="boxes">
+      <div class="container_2">
+        <div class="box">
+          <img src="../static/logo_html.png">
+          <h3>250000 car crashes per year in NYC</h3>
+          <p>Resulted in 50 thousand injuries/deaths per year. Most are injuries/deaths of car drivers and passengers</p>
+        </div>
+        <div class="box">
+          <img src="../static/logo_css.png">
+          <h3>Multiple attributes affect casualty rate</h3>
+          <p>These attributes include time, date, locations, street conditions, car types, recorded contributing factors by police, weather, etc.</p>
+        </div>
+        <div class="box">
+          <img src="../static/logo_brush.png">
+          <h3>Casualty can be predicted</h3>
+          <p>Predicting the casualty in an accident helps police, hospitals and other stakeholders to better allocate their resources</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Yuantao Li， fellow of The Data Incubator, Copyright &copy; 2019</p>
+    </footer>
+  </body>
+</html>

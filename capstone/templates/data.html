@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Car collisions">
+    <meta name="keywords" content="Car collision analysis">
+    <meta name="author" content="Yuantao Li">
+    <title>Car collisions | Welcome</title>
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body>
+ 
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">NYC Car Collisions</span> and Casualty</h1>
+        </div>
+        <nav>
+          <ul>
+            <li class="current"><a href="{{ url_for('index')}}">Home</a></li>
+            <li><a href="{{ url_for('data')}}">Data</a></li>
+            <li><a href="{{ url_for('prediction')}}">Prediction</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+
+    <section id="main">
+      <div class="container">
+        
+          <h1 class="page-title">Broadway, East Houston Street, FDR Driveway, Queens blvd are studied here</h1>
+          <h1 class="page-title">Zoom in and see details</h1>
+          <iframe src="../static/overallmap.html"></iframe>
+        
+        
+                          
+      </div>
+    </section>
+    <section id="main">
+      <div class="container">
+        
+          <h1 class="page-title">Likelihood of injury in different street blocks</h1>
+          <h1 class="page-title">Zoom in and see details. Darker color indicates casualty is more likely</h1>
+          <iframe src="../static/map.html"></iframe>
+   
+
+        <article id="main-col">
+          
+          <p>
+            Here 304 MB of motor vehicle collision data from 2012-2018 were used, combined with 16 MB of street assessment data, 82.3 MB of speed limit data, 20 MB of street block rating data. Geographic location, street conditions, police records of contributing factors, types vehicles involved, date, time, etc were used to build up gradient boosting model to predict the likelihood of an injury or death of a motorist in an accident.
+
+            The prediction will be helpful for hospitals and police to better allocation their resourse to rescue those who are injured. Meanwhile, it sheds light on what area and under what conditions the accidents harms more people. This will be helpful to prevent the occurance of injuries.
+          </p>
+ 
+        </article>       
+                          
+
+    </section>
+
+    <footer>
+      <p>Yuantao Li, The Data Incubator, Copyright &copy; 2019</p>
+    </footer>
+  </body>
+</html>
